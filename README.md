@@ -4,14 +4,13 @@ Script to delete a File or Folder on a BTRFS Filesystem and in all its Snapshots
 # Usage
 Call the script and provide it with the path to the file or folder you with to delete 
 
-`sudo bash ./btrfs-delete /Full/Path/to/your/file/or/folder`
+`sudo bash ./btrfs-delete /Full/Path/to/your/file/or/folder /path/to/BTRFS/subvolume`
 
 watch your space freeing up
 
 # Installation
 - Download the Script
 - make it executable (chmod +x /path/to/script)
-- open the script and fill out `PathToVolume=`
 
 ## Install "oneliner"
 `cd /usr/local/bin/ && sudo wget https://raw.githubusercontent.com/paskalito/btrfs-delete/main/btrfs-delete.sh && sudo chmod +x btrfs-delete.sh`
