@@ -12,7 +12,6 @@ watch your space freeing up
 - Download the Script
 - make it executable (chmod +x /path/to/script)
 - open the script and fill out `PathToVolume=`
-- ! If you have dryrun the script, and checked it will delete the correct files or folders remove the # before the `rm -rf "$1"` so things get actually deleted (this is meant as a safety mecanism)
 
 ## Install "oneliner"
 `cd /usr/local/bin/ && sudo wget https://raw.githubusercontent.com/paskalito/btrfs-delete/main/btrfs-delete.sh && sudo chmod +x btrfs-delete.sh`
