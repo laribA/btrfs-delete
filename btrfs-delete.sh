@@ -1,13 +1,20 @@
 #!/bin/bash
-Input="$1" # is read from input
-# Path of your Btrfs Volume or Mountpoint >> MUST HAVE "/" AT THE END << (e.g "/home/" or "/mnt/data/")
-PathToVolume=""
+# Forked from https://github.com/paskalito/btrfs-delete
+Input="$(readlink -m "$1")" # is read from input
+
+# Path to BTRFS Volume or Mountpoint >> MUST HAVE "/" AT THE END << (e.g "/home/" or "/mnt/data/")
+PathToVolume="$2"
+if ! echo -n $PathToVolume | tail -c 1 | grep -q '/'; then # Echoes PathToVolume, gets last character, checks if character is slash
+  PathToVolume="$(echo "${PathToVolume}/")" # If no slash, adds one for the user
+fi
+
+echo "Deleting $Input from BTRFS subvolume $PathToVolume"
 
 # function that actually deletes something
 function DeleteFileOrFolder() {
     echo "Deleting ... $1"
     # Uncomment the following line to Actually delete something
-    # rm -rf "$1"
+    rm -rf "$1"
     if [ $? -eq 0 ]; then
         echo "Deleted SUCCESSFULLY"
     fi
